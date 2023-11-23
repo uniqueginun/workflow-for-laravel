@@ -26,7 +26,16 @@
 <div class="col-md-12 mt-5">
     <h4>خطوات التسكين</h4>
 
-    <div id="emplacement-stepper" class="bs-stepper">
+    <button class="btn btn-primary mb-1" data-toggle="collapse" href="#emplacementCollapse" role="button" aria-expanded="false" aria-controls="emplacementCollapse">إستعراض الوقت المتبقي للتسكين</button>
+
+    <div class="collapse mb-5" id="emplacementCollapse">
+        <div class="card card-body">
+            @include('countdown')
+        </div>
+    </div>
+
+
+    <div id="emplacement-stepper" class="bs-stepper mt-4">
         <div class="bs-stepper-header">
             @foreach($steps as $step => $details)
             @unless($loop->index === 0) <div class="line"></div>@endunless
