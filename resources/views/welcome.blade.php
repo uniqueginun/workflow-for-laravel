@@ -10,40 +10,54 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 
-    </head>
-    <body class="vertical rtl ">
-        <div class="container-fluid">
-            <div class="row mt-5">
-                <div class="col-md-6">
-                    <div id="js-tree"></div>
-                </div>
-                <div class="col-md-6">
-                    <div class="spinner-border m-5 d-none" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
 
-                    <table class="table d-none">
-                        <thead class="thead-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">الإسم</th>
-                            <th scope="col">الكود</th>
-                            <th scope="col">المدير</th>
-                        </tr>
-                        </thead>
-                        <tbody id="tbody"></tbody>
-                    </table>
+    </head>
+    <body class="vertical rtl">
+
+    <div class="wrapper">
+        <main role="main" class="main-content pt-0" id="app">
+            <div class="container-fluid">
+
+                @include('stepper')
+
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <div id="js-tree"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="spinner-border m-5 d-none" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <table class="table d-none">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">الإسم</th>
+                                <th scope="col">الكود</th>
+                                <th scope="col">المدير</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbody">
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
+    </div>
 
+        @stack('js')
 
         <script>
             const base = @json($base);
